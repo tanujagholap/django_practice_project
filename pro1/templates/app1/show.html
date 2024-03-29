@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>PHONE_NUMBER</th>
+                <th>GENDER</th>
+                <th colspan="2">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in objs %}
+            <tr>
+                <td>{{ i.id  }}</td>
+                <td>{{ i.name  }}</td>
+                <td>{{ i.age  }}</td>
+                <td>{{ i.mobile_no  }}</td>
+                <td>{{ i.gender  }}</td>
+                <td>
+                    <a href="{% url 'update_url' i.id %}">
+                        <button>UPDATE</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_url' i.id %}">
+                        <button>DELETE</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
